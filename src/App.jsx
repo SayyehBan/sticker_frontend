@@ -1,12 +1,22 @@
+import { Helmet } from "react-helmet";
+import MainLayout from "./components/layouts/MainLayout";
 import { miladiToShamsiAndShahanshahi } from "./utilities/PersianDateConverter";
+import Header from "./components/Header";
+import StickerListing from "./components/stickerListing";
 
 function App() {
   return (
-    <div className="flex items-center justify-center h-screen bg-blue-500 text-white text-3xl">
-      {miladiToShamsiAndShahanshahi(new Date(), 1)}
-      <br />
-      به نام ایران
-    </div>
+    <MainLayout>
+      <Helmet>
+        <title>
+          فروشگاه استیکر {miladiToShamsiAndShahanshahi(new Date(), 1)}
+        </title>
+      </Helmet>
+      <div className="max-auto ">
+        <Header />
+        <StickerListing />
+      </div>
+    </MainLayout>
   );
 }
 
