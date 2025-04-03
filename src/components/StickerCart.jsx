@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Server_URL } from "../utilities/constants/contactValue";
+import CustomNumeralNumericFormat from "./Price";
 
 const StickerCart = (stickers) => {
   const { stickerID, title, price, description, sticker } = stickers.stickers;
@@ -20,7 +21,12 @@ const StickerCart = (stickers) => {
             {description}
           </div>
           <div className="absolute bottom-0 right-0 mb-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-tl-2xl shadow-md">
-            {price} تومان
+            <CustomNumeralNumericFormat
+              value={price}
+              thousandSeparator=","
+              prefix={`قیمت : `}
+              suffix={` تومان `}
+            />
           </div>
         </div>
       </div>
