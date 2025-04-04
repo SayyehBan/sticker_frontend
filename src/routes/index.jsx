@@ -3,6 +3,7 @@ import App from "../App";
 import NotFound from "../components/NotFound";
 import StickerDetails from "../components/StickerDetails";
 import MainLayout from "../components/layouts/MainLayout";
+import CartTable from "../components/CartTable";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -14,6 +15,14 @@ export const router = createBrowserRouter([
     element: (
       <MainLayout>
         <StickerDetails />
+      </MainLayout>
+    ),
+  },
+  {
+    path: "/cart",
+    element: (
+      <MainLayout>
+        <CartTable />
       </MainLayout>
     ),
   },

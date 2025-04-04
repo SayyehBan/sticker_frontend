@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaCartArrowDown } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { addToCart } from "../slices/cartSlice";
 
 const StickerForm = ({ sticker }) => {
   const [quantity, setQuantity] = useState(1);
@@ -11,11 +12,8 @@ const StickerForm = ({ sticker }) => {
                       flex justify-center items-center gap-2 hover:bg-indigo-700 transition-colors duration-200 shadow-md`;
 
   const handleAddToCart = (item) => {
-    dispatch({
-      type: "addToCart",
-      payload: { ...item, cartQuantity: quantity },
-    });
-    navigate("/cart");
+    dispatch(addToCart(item));
+    // navigate("/cart");
   };
 
   const handleQuantityChange = () => {
