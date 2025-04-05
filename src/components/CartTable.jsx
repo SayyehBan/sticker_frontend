@@ -1,6 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, getTotals } from "../slices/cartSlice";
+import {
+  addToCart,
+  decreaseCart,
+  getTotals,
+  removeFromCart,
+} from "../slices/cartSlice";
 import { Helmet } from "react-helmet";
 import { Server_URL } from "../utilities/constants/contactValue";
 import CustomNumeralNumericFormat from "./Price";
@@ -17,6 +22,19 @@ const CartTable = () => {
 
   const handleAddToCart = (sticker) => {
     dispatch(addToCart(sticker));
+  };
+  const handleDecreaseQuantity = (item) => {
+    dispatch(decreaseCart(item));
+  };
+  const handleRemoveFromCart = (item) => {
+    dispatch(removeFromCart(item));
+  };
+  const handleQuantityChange = (e, item) => {
+    if (e.target.value > item.cartQuantity) {
+      handleAddToCart(item);
+    } else {
+      handleDecreaseQuantity(item);
+    }
   };
 
   return (
@@ -66,6 +84,8 @@ const CartTable = () => {
                         min="1"
                         step="1"
                         className="w-16 text-center border rounded-md focus:ring focus:ring-blue-300"
+                        value={item.cartQuantity}
+                        onChange={(e) => handleQuantityChange(e, item)}
                       />
                     </td>
                     <td className="py-4 px-6 hidden sm:table-cell">
@@ -76,7 +96,10 @@ const CartTable = () => {
                       />
                     </td>
                     <td className="py-4 px-6">
-                      <button className="text-red-500 hover:text-red-700">
+                      <button
+                        className="text-red-500 hover:text-red-700"
+                        onClick={() => handleRemoveFromCart(item)}
+                      >
                         <FaTimes className="w-5 h-5" />
                       </button>
                     </td>
