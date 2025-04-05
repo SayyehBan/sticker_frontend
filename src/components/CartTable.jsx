@@ -11,6 +11,7 @@ import { Server_URL } from "../utilities/constants/contactValue";
 import CustomNumeralNumericFormat from "./Price";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight, FaTimes } from "react-icons/fa";
+import QuantityInput from "./common/QuantityInput";
 
 const CartTable = () => {
   const cart = useSelector((state) => state.cart);
@@ -28,13 +29,6 @@ const CartTable = () => {
   };
   const handleRemoveFromCart = (item) => {
     dispatch(removeFromCart(item));
-  };
-  const handleQuantityChange = (e, item) => {
-    if (e.target.value > item.cartQuantity) {
-      handleAddToCart(item);
-    } else {
-      handleDecreaseQuantity(item);
-    }
   };
 
   return (
@@ -79,19 +73,17 @@ const CartTable = () => {
                       </Link>
                     </td>
                     <td className="py-4 px-6">
-                      <input
-                        type="number"
-                        min="1"
-                        step="1"
-                        className="w-16 text-center border rounded-md focus:ring focus:ring-blue-300"
-                        value={item.cartQuantity}
-                        onChange={(e) => handleQuantityChange(e, item)}
+                      <QuantityInput
+                        qty={item.cartQuantity}
+                        decrementQty={() => handleDecreaseQuantity(item)}
+                        incrementQty={() => handleAddToCart(item)}
                       />
                     </td>
                     <td className="py-4 px-6 hidden sm:table-cell">
                       <CustomNumeralNumericFormat
                         value={item.price * item.cartQuantity}
                         thousandSeparator=","
+                        perfix="قیمت : "
                         suffix=" تومان "
                       />
                     </td>

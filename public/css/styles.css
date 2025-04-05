@@ -20,3 +20,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* حذف فلش‌های داخل input number برای Chrome, Safari, Edge, Opera */
+input[type="number"].hide-arrow::-webkit-outer-spin-button,
+input[type="number"].hide-arrow::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* برای Firefox */
+input[type="number"].hide-arrow {
+  -moz-appearance: textfield;
+}
