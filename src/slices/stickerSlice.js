@@ -6,7 +6,7 @@ const initialState = {
     items: [],
     status: null,
     currentPage: 1,
-    pageSize: 2,
+    pageSize: 4,
     totalPages: 0,
     totalRecords: 0,
 };

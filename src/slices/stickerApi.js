@@ -29,7 +29,7 @@ export const stickerApi = createApi({
             ],
         }),
         stickersGetAll: builder.query({
-            query: () => `Sticker/StickersGetAll?PageNumber=${1}&PageSize=${2}`,
+            query: ({ pageNumber = 1, pageSize = 2 }) => `Sticker/StickersGetAll?PageNumber=${pageNumber}&PageSize=${pageSize}`,
             providesTags: (result, error, arg) => [
                 ...result.map(({ stickerID }) => ({ type: "Sticker", stickerID })),
                 "Sticker",
