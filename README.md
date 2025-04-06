@@ -26,16 +26,22 @@
 1. کلون کردن مخزن:
 
 ```bash
-git clone https://github.com/your-username/sticker-shop.git
+git clone https://github.com/SayyehBan/sticker_frontend.git
 ```
 
-2. نصب وابستگی‌ها:
+2. کلون کردن backend:
+
+```bash
+git clone https://github.com/SayyehBan/Sticker_Backend.git
+```
+
+3. نصب وابستگی‌ها:
 
 ```bash
 npm install
 ```
 
-3. اجرای سرور توسعه:
+4. اجرای سرور توسعه:
 
 ```bash
 npm run dev
