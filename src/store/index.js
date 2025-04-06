@@ -11,6 +11,7 @@ export const store = configureStore({
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(stickerApi.middleware),
 });
-store.dispatch(fetchStickers());
+// store.dispatch(fetchStickers());
+store.dispatch(stickerApi.endpoints.stickersGetAll.initiate());
 store.dispatch(populateCart());
 store.dispatch(getTotals());

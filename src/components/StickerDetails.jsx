@@ -1,22 +1,20 @@
-import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { Server_URL } from "../utilities/constants/contactValue";
 import CustomNumeralNumericFormat from "./Price";
 import { Helmet } from "react-helmet";
 import { FaArrowLeft } from "react-icons/fa";
 import StickerForm from "./StickerForm";
+import { useStickersFindByIDQuery } from "../slices/stickerApi";
 
 const StickerDetails = () => {
   const { stickerID } = useParams();
-  const stickers = useSelector((state) => state.stickers.items);
-  const sticker = stickers.find(
-    (item) => item.stickerID === parseInt(stickerID)
+  const { data: sticker, isSuccess } = useStickersFindByIDQuery(
+    parseInt(stickerID)
   );
-
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-6 md:gap-8">
-        {sticker ? (
+        {isSuccess ? (
           <>
             <Helmet>
               <title>{sticker.title}</title>

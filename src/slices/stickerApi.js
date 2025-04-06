@@ -30,10 +30,22 @@ export const stickerApi = createApi({
         }),
         stickersGetAll: builder.query({
             query: ({ pageNumber = 1, pageSize = 2 }) => `Sticker/StickersGetAll?PageNumber=${pageNumber}&PageSize=${pageSize}`,
-            providesTags: (result, error, arg) => [
-                ...result.map(({ stickerID }) => ({ type: "Sticker", stickerID })),
-                "Sticker",
-            ],
+            providesTags: (result) => {
+                if (!result?.data) return ["Sticker"];
+                return [
+                    ...result.data.map(({ stickerID }) => ({ type: "Sticker", stickerID })),
+                    "Sticker",
+                ];
+            },
+            transformResponse: (response) => {
+                return {
+                    data: response,
+                    totalRecords: response[0]?.totalRecords || 0,
+                    totalPages: response[0]?.totalPages || 1,
+                    currentPage: response[0]?.currentPage || 1,
+                    pageSize: response[0]?.pageSize || 4,
+                };
+            }
         }), stickersInsert: builder.mutation({
             query: (sticker) => {
                 const formData = new FormData();
