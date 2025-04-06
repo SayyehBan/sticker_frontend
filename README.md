@@ -1,12 +1,63 @@
-# React + Vite
+# فروشگاه استیکر با Redux Toolkit (RTK)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![تصویر فروشگاه استیکر](./1.jpg)
 
-Currently, two official plugins are available:
+یک فروشگاه مدرن استیکر ساخته شده با React، Redux Toolkit (RTK) و ویژگی‌های پیشرفته صفحه‌بندی.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ویژگی‌ها
 
-## Expanding the ESLint configuration
+- 🛍️ مرور و خرید استیکر
+- 🔄 مدیریت state با Redux Toolkit (RTK)
+- 📄 صفحه‌بندی برای تجربه کاربری بهتر
+- 🎨 طراحی مدرن و واکنش‌گرا
+- 🛒 قابلیت سبد خرید
+- 💳 فرآیند پرداخت
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## تکنولوژی‌های استفاده شده
+
+- React
+- Redux Toolkit (RTK)
+- Vite
+- React Router
+- Styled Components
+
+## شروع به کار
+
+1. کلون کردن مخزن:
+
+```bash
+git clone https://github.com/your-username/sticker-shop.git
+```
+
+2. نصب وابستگی‌ها:
+
+```bash
+npm install
+```
+
+3. اجرای سرور توسعه:
+
+```bash
+npm run dev
+```
+
+## ساختار پروژه
+
+```
+src/
+├── components/
+├── features/
+│   └── cart/
+│   └── products/
+├── store/
+├── pages/
+└── assets/
+```
+
+## مشارکت
+
+درخواست‌های pull مورد استقبال قرار می‌گیرند. برای تغییرات عمده، لطفاً ابتدا یک issue باز کنید تا در مورد تغییراتی که می‌خواهید ایجاد کنید بحث کنیم.
+
+## مجوز
+
+MIT

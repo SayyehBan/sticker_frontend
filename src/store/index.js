@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import stickerReducer, { fetchStickers } from "../slices/StickerSlice";
+import stickerReducer from "../slices/StickerSlice";
 import cartReducer, { getTotals, populateCart } from "../slices/cartSlice";
 import { stickerApi } from "../slices/stickerApi";
 export const store = configureStore({
