@@ -29,13 +29,12 @@ export const stickerApi = createApi({
             ],
         }),
         stickersGetAll: builder.query({
-            query: () => "Sticker/StickersGetAll",
+            query: () => `Sticker/StickersGetAll?PageNumber=${1}&PageSize=${2}`,
             providesTags: (result, error, arg) => [
                 ...result.map(({ stickerID }) => ({ type: "Sticker", stickerID })),
                 "Sticker",
             ],
-        }),
-        stickersInsert: builder.mutation({
+        }), stickersInsert: builder.mutation({
             query: (sticker) => {
                 const formData = new FormData();
                 formData.append("Title", sticker.title);

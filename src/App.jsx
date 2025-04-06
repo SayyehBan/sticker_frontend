@@ -2,9 +2,11 @@ import { Helmet } from "react-helmet";
 import MainLayout from "./components/layouts/MainLayout";
 import { miladiToShamsiAndShahanshahi } from "./utilities/PersianDateConverter";
 import Header from "./components/Header";
-import StickerListing from "./components/stickerListing";
+import PaginateItems from "./components/common/PaginateItems";
+import { useSelector } from "react-redux";
 
-function App() {
+const App = () => {
+  const { items: stickers, status } = useSelector((state) => state.stickers);
   return (
     <MainLayout>
       <Helmet>
@@ -14,10 +16,10 @@ function App() {
       </Helmet>
       <div className="max-auto ">
         <Header />
-        <StickerListing />
+        <PaginateItems stickers={stickers} status={status} />
       </div>
     </MainLayout>
   );
-}
+};
 
 export default App;

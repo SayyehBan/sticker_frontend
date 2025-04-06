@@ -28,6 +28,12 @@ input[type="number"].hide-arrow::-webkit-inner-spin-button {
 }
 
 /* برای Firefox */
+/* Hide number input arrows/spinners */
 input[type="number"].hide-arrow {
+  /* Standard property first */
+  appearance: textfield;
+
+  /* Vendor prefixes for better compatibility */
+  -webkit-appearance: textfield;
   -moz-appearance: textfield;
 }
